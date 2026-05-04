@@ -1,0 +1,7 @@
+app.usbuitest.driver.app-pngs-0 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/generated/res/pngs/debug
+app.usbuitest.driver.app-resValues-1 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/generated/res/resValues/debug
+app.usbuitest.driver.app-packageDebugResources-2 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+app.usbuitest.driver.app-packageDebugResources-3 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+app.usbuitest.driver.app-merged_res-4 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/merged_res/debug
+app.usbuitest.driver.app-debug-5 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/src/debug/res
+app.usbuitest.driver.app-main-6 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/src/main/res

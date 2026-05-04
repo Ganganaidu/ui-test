@@ -1,0 +1,24 @@
+{
+  "name": "@usb-ui-test/local-executor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deterministic, fully-local YAML test executor. Resolves structured commands (tapOn, inputText, swipe, assertVisible, waitFor, ...) against the on-device accessibility hierarchy. No AI providers, no outbound network.",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && tsc",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "@usb-ui-test/common": "*",
+    "@usb-ui-test/device-node": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

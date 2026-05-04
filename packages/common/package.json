@@ -1,0 +1,22 @@
+{
+  "name": "@usb-ui-test/common",
+  "version": "0.1.7",
+  "description": "Shared interfaces, models, and constants for the UsbUiTest CLI",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test": "node --test \"dist/**/*.test.js\""
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

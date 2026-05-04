@@ -1,0 +1,54 @@
+{
+  "name": "usb-ui-test-monorepo",
+  "version": "0.1.9",
+  "private": true,
+  "description": "Monorepo for the usb-ui-test CLI",
+  "workspaces": [
+    "packages/common",
+    "packages/device-node",
+    "packages/goal-executor",
+    "packages/report-web",
+    "packages/local-executor",
+    "packages/cli",
+    "packages/local-runtime"
+  ],
+  "scripts": {
+    "bootstrap": "npm ci",
+    "build": "npm run build --workspaces --if-present",
+    "build:drivers": "./scripts/build-drivers-android.sh && ./scripts/build-drivers-ios.sh",
+    "build:drivers:android": "./scripts/build-drivers-android.sh",
+    "build:drivers:ios": "./scripts/build-drivers-ios.sh",
+    "clean": "rm -rf packages/*/dist packages/*/tsconfig.tsbuildinfo packages/report-web/.next drivers/android/.gradle drivers/android/.kotlin drivers/android/app/build drivers/android/build drivers/ios/.derived-data resources/android/*.apk resources/ios/*.zip resources/ios/Debug-iphonesimulator",
+    "dev:cli": "npm run dev --workspace=packages/cli --",
+    "dev:report": "npm run dev --workspace=packages/report-web --",
+    "dev:watch": "tsc --build --watch --preserveWatchOutput packages/common/tsconfig.json packages/device-node/tsconfig.json packages/goal-executor/tsconfig.json packages/cli/tsconfig.json",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build && changeset publish",
+    "lint": "eslint packages/*/src packages/cli/bin packages/cli/scripts eslint.config.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run build && npm run test:workspaces",
+    "test:workspaces": "npm run test --workspaces --if-present",
+    "generate:proto": "npm run generate:proto --workspace=packages/device-node",
+    "prebuild": "node ./scripts/ensure-dev-install.mjs",
+    "predev:cli": "node ./scripts/ensure-dev-install.mjs",
+    "predev:report": "node ./scripts/ensure-dev-install.mjs",
+    "predev:watch": "node ./scripts/ensure-dev-install.mjs",
+    "pretest": "node ./scripts/ensure-dev-install.mjs",
+    "prelint": "node ./scripts/ensure-dev-install.mjs",
+    "pregenerate:proto": "node ./scripts/ensure-dev-install.mjs"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.4.0",
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.57.2"
+  }
+}

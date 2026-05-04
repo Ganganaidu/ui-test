@@ -1,0 +1,150 @@
+---
+title: "UsbUiTest CLI reference: all commands, flags, and options"
+sidebarTitle: "CLI Reference"
+description: "Complete reference for all UsbUiTest CLI commands — test, suite, check, doctor, runs, and server commands — with flags and copy-paste usage examples."
+---
+
+The `usb-ui-test` CLI is the main interface for validating workspaces, running tests, and inspecting reports. CLI flags always take precedence over settings in `.usb-ui-test/config.yaml`, so you can override any default at the command line without editing your config file.
+
+## Getting started
+
+Use these commands to verify your environment before running tests.
+
+<CardGroup cols={2}>
+  <Card title="usb-ui-test check" icon="circle-check">
+    Validates your `.usb-ui-test` workspace, environment bindings, selectors, and suite manifests. Falls back to the `env` set in `.usb-ui-test/config.yaml` when `--env` is omitted.
+  </Card>
+  <Card title="usb-ui-test doctor" icon="stethoscope">
+    Checks host readiness for local Android and iOS runs. Use `--platform` to check a single platform.
+  </Card>
+</CardGroup>
+
+```sh
+# Check the full workspace
+usb-ui-test check
+
+# Validate a specific environment and platform
+usb-ui-test check --env dev --platform android
+```
+
+## Running tests
+
+<Tabs>
+  <Tab title="usb-ui-test test">
+    Executes one or more YAML specs from `.usb-ui-test/tests/`.
+
+    ```sh
+    usb-ui-test test <selectors...> [flags]
+    ```
+
+    **Examples**
+
+    ```sh
+    # Run a single test
+    usb-ui-test test smoke.yaml --platform android --model google/gemini-3-flash-preview
+
+    # Run with a specific app binary
+    usb-ui-test test smoke.yaml --platform android --app path/to/your.apk
+
+    # Run two specs at once
+    usb-ui-test test auth/login.yaml auth/logout.yaml --platform ios --env staging
+    ```
+  </Tab>
+  <Tab title="usb-ui-test suite">
+    Executes a suite manifest from `.usb-ui-test/suites/`.
+
+    ```sh
+    usb-ui-test suite <suitePath> [flags]
+    ```
+
+    **Example**
+
+    ```sh
+    usb-ui-test suite auth_smoke.yaml --platform ios --model anthropic/claude-sonnet-4-6
+    ```
+  </Tab>
+</Tabs>
+
+### Common flags
+
+The following flags apply to both `usb-ui-test test` and `usb-ui-test suite`.
+
+<ParamField path="--platform" type="android | ios" required>
+  Target platform for the test run. Required when the platform cannot be inferred from the `--app` extension (`.apk` implies Android, `.app` implies iOS).
+</ParamField>
+
+<ParamField path="--model" type="string">
+  AI model to use, in `provider/model` format. For example: `google/gemini-3-flash-preview`, `anthropic/claude-sonnet-4-6`, `openai/gpt-5`. Falls back to the `model` key in `.usb-ui-test/config.yaml`.
+</ParamField>
+
+<ParamField path="--env" type="string">
+  Environment name. Selects the matching file at `.usb-ui-test/env/<name>.yaml`. Falls back to the `env` key in `.usb-ui-test/config.yaml`.
+</ParamField>
+
+<ParamField path="--app" type="path">
+  Path to the `.apk` or `.app` binary to install and test. Overrides the app identity defined in `.usb-ui-test/config.yaml`.
+</ParamField>
+
+<ParamField path="--api-key" type="string">
+  Override the provider API key for this run. Use `--api-key` for one-off runs; for persistent configuration set the provider environment variable (`GOOGLE_API_KEY`, `OPENAI_API_KEY`, or `ANTHROPIC_API_KEY`).
+</ParamField>
+
+<ParamField path="--debug" type="boolean">
+  Enable debug logging for the run.
+</ParamField>
+
+<ParamField path="--max-iterations" type="number">
+  Cap the number of AI action iterations per step. The run aborts when the limit is reached.
+</ParamField>
+
+<Note>
+  CLI flags always take precedence over `.usb-ui-test/config.yaml`. You can set defaults in config and override them selectively at the command line.
+</Note>
+
+## Report commands
+
+After a test run, UsbUiTest saves artifacts locally. These commands let you list, browse, and manage those reports.
+
+| Command | Description |
+|---|---|
+| `usb-ui-test runs` | Lists local reports from `~/.usb-ui-test/workspaces/<workspace-hash>/artifacts`. |
+| `usb-ui-test start-server` | Starts or reuses the local report UI for the current workspace. |
+| `usb-ui-test server-status` | Shows the current local report server status. |
+| `usb-ui-test stop-server` | Stops the local report server. |
+
+All report commands accept `--workspace <path>` to target a workspace other than the current directory.
+
+<CodeGroup>
+
+```sh List runs
+usb-ui-test runs
+
+# Machine-readable output
+usb-ui-test runs --json
+
+# Target a different workspace
+usb-ui-test runs --workspace /path/to/other/app
+```
+
+```sh Report server
+# Start the report UI
+usb-ui-test start-server
+
+# Check server status
+usb-ui-test server-status
+
+# Stop the server
+usb-ui-test stop-server
+
+# Target a different workspace
+usb-ui-test start-server --workspace /path/to/other/app
+```
+
+</CodeGroup>
+
+## Getting help
+
+```sh
+usb-ui-test --help
+usb-ui-test <command> --help
+```

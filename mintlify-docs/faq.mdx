@@ -1,0 +1,101 @@
+---
+title: "UsbUiTest FAQ: pricing, AI providers, and CI/CD usage"
+sidebarTitle: "FAQ"
+description: "Answers to common UsbUiTest questions: pricing, supported AI providers, platform compatibility, CI/CD usage, three-phase test model, and artifact storage."
+---
+
+UsbUiTest is an open-source, CLI-based tool — no account required, no platform lock-in. The questions below cover the most common things people ask about how UsbUiTest works, what it costs, and how to get the most out of it.
+
+<AccordionGroup>
+  <Accordion title="Do I need to create a UsbUiTest account?">
+    No. UsbUiTest is open-source and runs entirely from the command line. Install the CLI, set your AI provider API key, and start running tests. There is no account, signup, or UsbUiTest subscription required.
+  </Accordion>
+
+  <Accordion title="Which AI providers does UsbUiTest support?">
+    UsbUiTest supports three AI providers. You bring your own key (BYOK) — costs are billed directly by your provider at standard API rates.
+
+    | Provider | Supported models | Environment variable |
+    |---|---|---|
+    | Google | Gemini 3+ | `GOOGLE_API_KEY` |
+    | OpenAI | GPT-5+ | `OPENAI_API_KEY` |
+    | Anthropic | Claude Sonnet 4 / Opus 4+ | `ANTHROPIC_API_KEY` |
+
+    Set the key in your shell or in a `.env` file at your workspace root. You can also override it for a single run with the `--api-key` flag.
+  </Accordion>
+
+  <Accordion title="Does UsbUiTest work with real devices or only emulators?">
+    Currently UsbUiTest targets Android emulators (AVDs) and iOS simulators for local runs. The current project focus is local AI-driven UI testing rather than managed device infrastructure.
+  </Accordion>
+
+  <Accordion title="Which platforms does UsbUiTest support?">
+    - **Android** — any macOS, Linux, or Windows machine with Android SDK tools (`adb`, `emulator`, `scrcpy`) installed and a running Android Virtual Device.
+    - **iOS** — macOS only. Requires Xcode command line tools with `xcrun simctl`.
+
+    Run `usb-ui-test doctor` to check that all required dependencies are present on your machine before running tests.
+  </Accordion>
+
+  <Accordion title="How much does each test run cost?">
+    UsbUiTest itself is free and open-source. You pay your AI provider — Google, OpenAI, or Anthropic — for the tokens consumed during test execution. The cost depends on the model you choose and how long the test takes to complete. There are no additional charges from UsbUiTest.
+  </Accordion>
+
+  <Accordion title="Can I run UsbUiTest in CI/CD?">
+    Yes. Install the CLI in your CI environment and set the required environment variables — your AI provider API key, `ANDROID_HOME` (for Android), and any secrets your test specs reference. Then call `usb-ui-test test` or `usb-ui-test suite` as a step in your pipeline.
+
+    ```sh
+    usb-ui-test test smoke.yaml --platform android --model google/gemini-3-flash-preview
+    ```
+
+    Run `usb-ui-test check` before your test step to catch workspace configuration errors early, before you consume any API tokens.
+  </Accordion>
+
+  <Accordion title="What is the three-phase test execution model?">
+    Every UsbUiTest test has three phases:
+
+    - **`setup`** — optional actions that prepare a clean state before the test starts (for example, clearing app data).
+    - **`steps`** — the ordered, plain-English instructions the AI executes on your device screen.
+    - **`expected_state`** — the UI conditions the AI verifies once all steps have completed.
+
+    A test passes only when all three phases succeed. If any phase fails, UsbUiTest stops the run and records the failure with the current screenshot, video, and device log.
+  </Accordion>
+
+  <Accordion title="What is usb-ui-test check for?">
+    `usb-ui-test check` validates your entire workspace before you run any tests. It checks:
+
+    - Selector definitions
+    - Suite manifests
+    - Environment bindings (secrets and variables)
+    - App overrides
+
+    Running `usb-ui-test check` before a test run catches configuration errors early, so you are not spending API tokens on a run that will fail at startup.
+
+    ```sh
+    usb-ui-test check --env dev --platform android
+    ```
+  </Accordion>
+
+  <Accordion title="How do I use UsbUiTest with AI coding agents like Claude Code or Cursor?">
+    UsbUiTest ships a set of agent skills that let you generate tests, run them, and fix failures — all from your AI coding agent chat. Install the skills with:
+
+    ```sh
+    npx skills add gangadharkondati/usb-ui-test
+    ```
+
+    Once installed, three slash commands are available in your AI coding agent:
+
+    | Command | What it does |
+    |---|---|
+    | `/usb-ui-test-generate-test` | Reads your source code, infers app identity, and generates complete YAML test specs |
+    | `/usb-ui-test-use-cli` | Validates and runs your tests using the CLI |
+    | `/usb-ui-test-test-and-fix` | Runs the full generate → run → diagnose → fix loop until the test is green |
+  </Accordion>
+
+  <Accordion title="Where are test artifacts stored?">
+    Artifacts for each run — including video, screenshots, and device logs — are stored at:
+
+    ```
+    ~/.usb-ui-test/workspaces/<workspace-hash>/artifacts/
+    ```
+
+    Use `usb-ui-test runs` to list all recorded runs for your current workspace, and `usb-ui-test start-server` to open the visual report UI where you can browse results interactively.
+  </Accordion>
+</AccordionGroup>

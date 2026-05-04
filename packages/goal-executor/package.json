@@ -1,0 +1,29 @@
+{
+  "name": "@usb-ui-test/goal-executor",
+  "version": "0.1.7",
+  "private": true,
+  "description": "AI-driven goal execution engine using Vercel AI SDK",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/prompts"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test": "node --test \"dist/**/*.test.js\""
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.58",
+    "@ai-sdk/google": "^3.0.43",
+    "@ai-sdk/openai": "^3.0.47",
+    "@usb-ui-test/common": "*",
+    "ai": "^6.0.134",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

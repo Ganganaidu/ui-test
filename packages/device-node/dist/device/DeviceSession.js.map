@@ -1,0 +1,1 @@
+{"version":3,"file":"DeviceSession.js","sourceRoot":"","sources":["../../src/device/DeviceSession.ts"],"names":[],"mappings":";AAAA,uDAAuD;AACvD,6EAA6E;;;AAE7E,MAAa,aAAa;IAChB,sBAAsB,GAAG,IAAI,CAAC;IAEtC,IAAI,qBAAqB;QACvB,OAAO,IAAI,CAAC,sBAAsB,CAAC;IACrC,CAAC;IAED,wBAAwB,CAAC,qBAA0C;QACjE,IAAI,CAAC,sBAAsB,GAAG,qBAAqB,IAAI,IAAI,CAAC;IAC9D,CAAC;CACF;AAVD,sCAUC"}

@@ -1,0 +1,7 @@
+app.usbuitest.driver.test.app-tracing-1.1.0-0 /Users/gangadharkondati/.gradle/caches/8.13/transforms/1e59cc2e8e6e162b3567853e49b00eae/transformed/tracing-1.1.0/res
+app.usbuitest.driver.test.app-uiautomator-2.3.0-1 /Users/gangadharkondati/.gradle/caches/8.13/transforms/af857fe84e45e4721de8c5d98b2500e5/transformed/uiautomator-2.3.0/res
+app.usbuitest.driver.test.app-core-1.6.1-2 /Users/gangadharkondati/.gradle/caches/8.13/transforms/e229585c543dc444e7e8b132fb7e08fe/transformed/core-1.6.1/res
+app.usbuitest.driver.test.app-androidTest-3 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/generated/res/resValues/androidTest/debug
+app.usbuitest.driver.test.app-mergeDebugAndroidTestResources-4 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+app.usbuitest.driver.test.app-mergeDebugAndroidTestResources-5 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+app.usbuitest.driver.test.app-merged_res-6 /Users/gangadharkondati/Downloads/finalrun-agent-main/usb-ui-test/drivers/android/app/build/intermediates/merged_res/debugAndroidTest

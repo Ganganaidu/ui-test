@@ -1,0 +1,84 @@
+{
+  "projectType": "cli-tool",
+  "projectName": "USB UI Test",
+  "projectDescription": "An AI-driven CLI that tests Android and iOS apps using natural language YAML specs, executing steps on real devices or emulators with Gemini, GPT, or Claude.",
+  "theme": "luma",
+  "primaryColor": "#3f4fe8",
+  "lightColor": "#d0a7f7",
+  "darkColor": "#6c4cfc",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Writing Tests",
+            "pages": [
+              "tests/yaml-format",
+              "tests/suites",
+              "tests/placeholders"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/workspace",
+              "configuration/environments",
+              "configuration/ai-providers"
+            ]
+          },
+          {
+            "group": "Running Tests",
+            "pages": [
+              "running/cli-reference",
+              "running/ai-agent-skills",
+              "running/reports"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "troubleshooting",
+              "faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Natural language YAML test specs for Android and iOS",
+    "AI-powered test execution using Gemini, GPT, or Claude",
+    "Three-phase test model: setup, steps, expected_state",
+    "AI agent skills for generating, running, and fixing tests",
+    "Local report viewer with video, screenshots, and device logs",
+    "BYOK (Bring Your Own Key) — use your own AI provider API key",
+    "Multi-environment support with secrets and variable bindings",
+    "One-command install and host readiness check via usb-ui-test doctor"
+  ],
+  "publicApiSurface": [
+    "usb-ui-test test <selectors...>",
+    "usb-ui-test suite <suitePath>",
+    "usb-ui-test check [selectors...]",
+    "usb-ui-test doctor",
+    "usb-ui-test runs",
+    "usb-ui-test start-server",
+    "usb-ui-test stop-server",
+    "usb-ui-test server-status",
+    "/usb-ui-test-generate-test skill",
+    "/usb-ui-test-use-cli skill",
+    "/usb-ui-test-test-and-fix skill",
+    ".usb-ui-test/config.yaml",
+    ".usb-ui-test/tests/<feature>/<name>.yaml",
+    ".usb-ui-test/suites/<name>.yaml",
+    ".usb-ui-test/env/<name>.yaml"
+  ]
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"SingleArgument.d.ts","sourceRoot":"","sources":["../../src/models/SingleArgument.ts"],"names":[],"mappings":"AAEA;;;;GAIG;AACH,qBAAa,cAAc;IACzB,QAAQ,CAAC,GAAG,EAAE,MAAM,CAAC;IACrB,QAAQ,CAAC,KAAK,EAAE,MAAM,CAAC;IACvB,QAAQ,CAAC,IAAI,EAAE,MAAM,CAAC;gBAEV,MAAM,EAAE;QAAE,GAAG,EAAE,MAAM,CAAC;QAAC,KAAK,EAAE,MAAM,CAAC;QAAC,IAAI,EAAE,MAAM,CAAA;KAAE;CAKjE"}

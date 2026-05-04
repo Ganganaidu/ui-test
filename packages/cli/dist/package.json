@@ -1,0 +1,65 @@
+{
+  "name": "@usb-ui-test/cli",
+  "version": "0.1.9",
+  "private": true,
+  "description": "AI-driven mobile app testing CLI for YAML-defined tests on Android and iOS.",
+  "license": "Apache-2.0",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "bin": {
+    "usb-ui-test": "dist/bin/usb-ui-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gangadharkondati/usb-ui-test.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/gangadharkondati/usb-ui-test#readme",
+  "bugs": {
+    "url": "https://github.com/gangadharkondati/usb-ui-test/issues"
+  },
+  "keywords": [
+    "mobile",
+    "testing",
+    "automation",
+    "yaml",
+    "android",
+    "ios",
+    "cli",
+    "ai"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc && node ./scripts/copyReportApp.mjs && node -e \"require('fs').copyFileSync('package.json','dist/package.json')\"",
+    "clean": "rm -rf dist proto tsconfig.tsbuildinfo",
+    "start": "tsx bin/usb-ui-test.ts",
+    "dev": "tsx --tsconfig ../../tsconfig.dev.json bin/usb-ui-test.ts",
+    "test": "node ./scripts/runTests.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.58",
+    "@ai-sdk/google": "^3.0.43",
+    "@ai-sdk/openai": "^3.0.47",
+    "@grpc/grpc-js": "^1.12.0",
+    "@grpc/proto-loader": "^0.7.0",
+    "@usb-ui-test/common": "*",
+    "@usb-ui-test/device-node": "*",
+    "@usb-ui-test/goal-executor": "*",
+    "@usb-ui-test/local-executor": "*",
+    "ai": "^6.0.134",
+    "chalk": "^5.4.0",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.0",
+    "ora": "^8.2.0",
+    "protobufjs": "^7.5.4",
+    "uuid": "^14.0.0",
+    "yaml": "^2.8.2",
+    "zod": "^4.1.8"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
