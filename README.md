@@ -1,51 +1,4 @@
-<p align="center">
-  <a href="https://usb-ui-test.app/">
-    <img alt="UsbUiTest logo" height="90" src="https://raw.githubusercontent.com/gangadharkondati/usb-ui-test/main/.github/resources/Logo.png">
-  </a>
-</p>
-
-<p align="center">
-  <a aria-label="Latest GitHub release" href="https://github.com/gangadharkondati/usb-ui-test/releases/latest" target="_blank">
-    <img alt="GitHub release" src="https://img.shields.io/github/v/release/gangadharkondati/usb-ui-test?style=flat-square&label=release&labelColor=000000&color=4630EB" />
-  </a>
-  <a aria-label="License: Apache-2.0" href="LICENSE">
-    <img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&color=33CC12" />
-  </a>
-</p>
-
-<p align="center">
-  <a aria-label="UsbUiTest website" href="https://usb-ui-test.app/"><b>usb-ui-test.app</b></a>
-  &ensp;•&ensp;
-  <a aria-label="UsbUiTest documentation" href="https://docs.usb-ui-test.app/">Docs</a>
-  &ensp;•&ensp;
-  <a aria-label="UsbUiTest blog" href="https://blogs.usb-ui-test.app/">Blog</a>
-  &ensp;•&ensp;
-  <a aria-label="UsbUiTest Slack community" href="https://join.slack.com/t/usb-ui-test-community/shared_invite/zt-38qg6q9fq-9L87nNF8aX4HZ8_pn9KBgw" target="_blank">Join Slack Community</a>
-</p>
-
-<h6 align="center">Follow us on</h6>
-<p align="center">
-  <a aria-label="Follow UsbUiTest on X" href="https://x.com/get_usb_ui_test" target="_blank">
-    <img alt="UsbUiTest on X" src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" />
-  </a>&nbsp;
-  <a aria-label="UsbUiTest on GitHub" href="https://github.com/gangadharkondati/usb-ui-test" target="_blank">
-    <img alt="UsbUiTest on GitHub" src="https://img.shields.io/badge/GitHub-222222?style=for-the-badge&logo=github&logoColor=white" />
-  </a>&nbsp;
-  <a aria-label="Follow UsbUiTest on LinkedIn" href="https://linkedin.com/company/usb-ui-test/" target="_blank">
-    <img alt="UsbUiTest on LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-</p>
-
----
-
 `usb-ui-test` is an AI-driven CLI that tests your Android and iOS apps using natural language. You write a plain-English test in YAML, UsbUiTest launches your app on an emulator or simulator, uses an AI model (Gemini, GPT, or Claude) to see the screen and perform each step — tapping, swiping, typing — and produces a pass/fail report with video and device logs.
-
-## Demo
-
-<p align="center">
-  <img alt="UsbUiTest demo" src="https://raw.githubusercontent.com/gangadharkondati/usb-ui-test/main/.github/resources/usb-ui-test-demo.gif" />
-</p>
-
 
 ## Install
 
@@ -65,10 +18,6 @@ CI environments (`CI=1` set in env) get this behavior automatically even without
 
 After install, run `usb-ui-test doctor` to verify host readiness.
 
-
-## Write and Run Your First Test Using AI Agents
-
-UsbUiTest ships [skills](https://github.com/vercel-labs/skills) that let your AI coding agent generate tests, validate workspaces, and run tests — all from chat.
 
 ### Generate tests
 
